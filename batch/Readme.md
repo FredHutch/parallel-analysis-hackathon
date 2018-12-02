@@ -1,5 +1,14 @@
 # AWS Batch
 
+### Environment Setup
+
+* VPC
+* Subnet needed with public access, per https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html
+	* Guide at https://docs.aws.amazon.com/batch/latest/userguide/create-public-private-vpc.html
+
+
+### Batch Primitives
+
 **API**
 
 * Boto3, https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/batch.html 

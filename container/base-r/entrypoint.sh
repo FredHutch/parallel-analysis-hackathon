@@ -1,0 +1,1 @@
+Rscript /var/startup.r

@@ -2,6 +2,7 @@
 
 ***Fred Hutch Hackathon, December 2018***
 
+The goal of this hackathon project is to enable someone to run cytometry analysis in parallel. The task is 'embarassingly parallel', because non of the tasks have dependencies on each other. They can run independently.
 
 * Embarrassingly parallel scale-out. Sounds like Lambda or containers to me
 

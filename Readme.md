@@ -1,8 +1,11 @@
 # Parallelizing Cytometry Processing
 
-
 ***Fred Hutch Hackathon, December 2018***
 
+
+* Embarrassingly parallel scale-out. Sounds like Lambda or containers to me
+
+https://aws.amazon.com/blogs/compute/analyzing-genomics-data-at-scale-using-r-aws-lambda-and-amazon-api-gateway/
 
 * AWS Batch, probably
 

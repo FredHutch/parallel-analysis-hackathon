@@ -2,9 +2,8 @@
 
 ***Fred Hutch Hackathon, December 2018***
 
-The goal of this hackathon project is to enable someone to run cytometry analysis in parallel. The task is 'embarassingly parallel', because non of the tasks have dependencies on each other. They can run independently.
+The goal of this hackathon project is to enable someone to [run cytometry analysis in parallel](https://teams.fhcrc.org/sites/HDC/Lists/Hackathon%20Proposals/DispForm.aspx?ID=10&ContentTypeId=0x010047F16798A81FA44C8BFA5C38D7C0878A ). The task is 'embarassingly parallel', because none of the tasks have dependencies on each other. They can run independently.
 
-* Embarrassingly parallel scale-out. Sounds like Lambda or containers to me
 
 https://aws.amazon.com/blogs/compute/analyzing-genomics-data-at-scale-using-r-aws-lambda-and-amazon-api-gateway/
 
@@ -27,6 +26,7 @@ https://aws.amazon.com/blogs/compute/analyzing-genomics-data-at-scale-using-r-aw
 * Will Jupyter notebooks work as the UI for this work? 
 * For the notebooks, all the inputs at the top, or inline?
 * Variables or IPyWidgets?
+   * IPyWidgets, https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20List.html#Text 
 * Confirm I can easily get the list of analysis from the input folder
 * What to do about failed analysis? Auto-retry a certain number of times?
 
@@ -37,19 +37,20 @@ https://aws.amazon.com/blogs/compute/analyzing-genomics-data-at-scale-using-r-aw
 
 * Make an S3 bucket
 * Make an IAM user for egreene
-* Enable AWS Batch if need be
+* **DONE** - Enable AWS Batch
 * Set up an AWS role for all of this, so perms are streamlined
 
 ## AWS Batch work
 
 * Learn how it passes variables around
-* How do we give it parameters for a job? 
+* How do we give it parameters for a job in boto3?
 * How do we configure CPU, memory, and *storage* for a container? 
 * How do we inject job parameters into a container?
    * Do they go in as environment variables? Files? 
 * What happens if a job fails? 
 * Can it email the output?
-* How can we get the console output of a job?
+   * No. How can we be alerted when it's done? 
+* How can we get the console output of a job? Cloudwatch logs.
 
 ## Notebook work
 
@@ -60,7 +61,7 @@ https://aws.amazon.com/blogs/compute/analyzing-genomics-data-at-scale-using-r-aw
 
 ## Container work
 
-* Use Ubuntu as the base? Everyone's familiar with it
+* **DONE** - Use Ubuntu as the base? Everyone's familiar with it
 * Confirm my entrypoint gets the variables it needs
 
 

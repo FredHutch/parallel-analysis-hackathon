@@ -1,3 +1,3 @@
-install.packages("Rcpp", repo="https://cloud.r-project.org/")
-intro <- "R is now installed and running"
+library("Rcpp")
+intro <- "R is now ready to go"
 intro

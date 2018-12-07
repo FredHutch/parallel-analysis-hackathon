@@ -1,35 +1,39 @@
 # Docker Notes
 
-### Make a basic container
+### Make a fetch-and-run container
+
+
+based on https://aws.amazon.com/blogs/compute/creating-a-simple-fetch-and-run-aws-batch-job/ and https://github.com/awslabs/aws-batch-helpers
 
 ```
-cd /Users/dnambi/Documents/GitHub/parallel-analysis-hackathon/container/hello-world-r
+sudo -i
+apt-get update
+apt-get -y install awscli docker.io
 
-docker build -t r-starter .
+cd $HOME
+mkdir -p fetchimage
+cd fetchimage
 
-docker run r-starter
+nano # create the Dockerfile
+nano # create the fetch-and-run script
+nano # create the R script
+
+docker build -t hackathon/fetch_and_run .   
+docker images
+
+apt-get list | grep g++
 ```
 
-**Set the entrypoint script to run RScript**
+```
+aws configure  # specify credentials
+aws ecr get-login --region us-west-2
 
-* http://goinbigdata.com/docker-run-vs-cmd-vs-entrypoint/
+docker login -u AWS -p <long_key> <aws_ecr_url>
 
+# tag a container so it can be uploaded
+docker tag hackathon/fetch_and_run <aws_ecr_url>/hackathon:fetch_and_run
 
-### Make the 'base' R container
+docker push <aws_ecr_url>/hackathon:fetch_and_run
 
 ```
-cd /Users/dnambi/Documents/GitHub/parallel-analysis-hackathon/container/base-r
-
-docker build -t base-r .
-
-docker run base-r
-```
-
-* https://www.tutorialspoint.com/r/r_basic_syntax.htm
-
-
-### Make a container that downloads the R script from an S3 location (defined in an environment variable) and runs it
-
-### Resources
-
 

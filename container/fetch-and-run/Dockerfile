@@ -1,8 +1,12 @@
-FROM amazonlinux:latest
-RUN yum -y update
-RUN yum -y install which unzip aws-cli sudo nano curl openssl
-RUN sudo amazon-linux-extras install -y epel
-RUN sudo yum -y install R
+FROM ubuntu:latest
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get -y update
+RUN apt-get -y install unzip awscli sudo nano curl openssl build-essential libcurl4-gnutls-dev libxml2-dev libssl-dev software-properties-common
+RUN sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+RUN sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/'
+RUN apt-get -y install r-base
+RUN apt -y update
+RUN apt-get -y upgrade r-base
 RUN R --version
 ADD install.r /var/install.r
 RUN R -f /var/install.r

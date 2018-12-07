@@ -51,7 +51,7 @@ sudo aws s3 cp "${R_SCRIPT_S3_URL}" "${RFILELOCATION}" || error_exit "Failed to 
 echo "Getting the input data from S3"
 # get the file from S3
 echo 
-sudo aws s3 cp "${INPUT_S3_DIR}" "${LOCAL_INPUT_DIR}" --recursive || error_exit "Failed to download input data from S3"
+sudo aws s3 cp "${S3_INPUT_DIR}" "${LOCAL_INPUT_DIR}" --recursive || error_exit "Failed to download input data from S3"
 
 
 

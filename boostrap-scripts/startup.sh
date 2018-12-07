@@ -34,7 +34,7 @@ sudo mkdir -p $LOCAL_OUTPUT_DIR
 
 
 echo "Getting the R script"
-RFILELOCATION="/var/analysis/r-script.r"
+RFILELOCATION="/var/analysis/processData.R"
 if [ -f $RFILELOCATION ] ; then
     sudo rm -f $RFILELOCATION
 fi

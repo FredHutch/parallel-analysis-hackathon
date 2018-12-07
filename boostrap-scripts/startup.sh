@@ -56,7 +56,7 @@ sudo aws s3 cp "${INPUT_S3_DIR}" "${LOCAL_INPUT_DIR}" --recursive || error_exit 
 
 
 echo "Running the R script"
-sudo R -f $RFILELOCATION
+sudo Rscript --vanilla $RFILELOCATION
 
 
 

@@ -1,6 +1,6 @@
 FROM amazonlinux:latest
 RUN yum -y update
-RUN yum -y install which unzip aws-cli sudo nano curl
+RUN yum -y install which unzip aws-cli sudo nano curl openssl
 RUN sudo amazon-linux-extras install -y epel
 RUN sudo yum -y install R
 RUN R --version

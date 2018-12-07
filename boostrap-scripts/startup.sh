@@ -34,7 +34,7 @@ sudo mkdir -p $LOCAL_OUTPUT_DIR
 
 
 echo "Getting the R script"
-RFILELOCATION="/var/analysis/r-script.r"
+RFILELOCATION="/var/analysis"
 if [ -f $RFILELOCATION ] ; then
     sudo rm -f $RFILELOCATION
 fi
@@ -56,7 +56,7 @@ sudo aws s3 cp "${S3_INPUT_DIR}" "${LOCAL_INPUT_DIR}" --recursive || error_exit 
 
 
 echo "Running the R script"
-sudo Rscript --vanilla $RFILELOCATION
+sudo Rscript --vanilla /var/analysis/processData.R
 
 
 

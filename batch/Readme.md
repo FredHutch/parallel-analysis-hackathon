@@ -105,12 +105,3 @@ aws batch submit-job
 * [AWS Batch Wrapper](https://github.com/FredHutch/aws-batch-wrapper)
 * [Stackify Guide to AWS Batch](https://stackify.com/aws-batch-guide/)
 
-
-### Steps to Do
-
-* Make a sleep-time task. All it does is sleep 60 seconds. Ensures coordination is working
-* Make a notebook for data engineer. 
-	* Creates S3 bucket. 
-	* Creates compute environment
-	* Creates job queue
-* 

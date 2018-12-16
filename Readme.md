@@ -40,6 +40,31 @@ During the course of the Hackathon we submitted 763 analysis jobs, each running 
    * Ideally, auto-retry once with more compute + memory. Then alert.
 
 
+### Tuning
+
+**Tuning Pass 1 - Only C5.18XLarge**
+
+* AWS Batch doesn't appear to scale up mixed types of instances very well; it often throttles based on EC2 limits of *any* instance. 
+* When a compute environment was created with only c5.18xlarge instances and the EC2 limit of them increased to 20, the whole process 
+
+Batch created at 9:53:21, the run happened from 10:08:20 to 10:46. There were 11 jobs running then.. That's a runtime of about 38 minutes.
+
+* Cost - 3.06 per Hour * 19 instances * 46 minutes = $45
+
+**Tuning Pass 2 - 12 Threads**
+
+* C5.18xlarge instances have 72 threads. Theoretically we can run 6 12-thread jobs rather than 4 16-thread jobs. Most jobs take only a few seconds, so this should scale better overall.
+Batch started at 10:46. Most processes started immediately because we had warmed-up instances. Often saw 85-90 concurrently running. Most processes were done by 10:55, a runtime of 9 minutes
+
+* Cost - 3.06 per Hour * 20 instances * 10 minutes = $10.2
+
+
+**Tuning Pass 3 - Spot Instances**
+
+* C5.18xlarge are 1.159 per Hour right now. 
+
+
+
 ## Next Steps
 
 * Make the steps to create-and-configure AWS Batch reproducible. They were originally created by Dev Nambi via the AWS console.
